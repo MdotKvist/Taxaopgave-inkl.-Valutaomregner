@@ -7,7 +7,7 @@ int valuta;
 float Resultat;
 int kurs;
 double resultatEfterOmreg;
-float visResultat;
+double visResultat;
 
 int main()
 {
@@ -154,7 +154,7 @@ float omregn() {
         }
     }
     else {
-        cout << "Prisen er: " << Resultat << ",- DKK";
+        return 0;
         
     
     }
