@@ -18,36 +18,52 @@ int main()
     float opkastgebyr = 1500;
     float kundenHarKastetOp;
     float prisprkm = 2;
-    float udregnetPrisForKørteKMFoerGebyr;
+    float udregnetPrisForKï¿½rteKMFoerGebyr;
     float sumindenrabat;
     float kastetop;
     float Rabatten;
 
 label:
 
+    // indsÃ¦t hvor mange km kunden vil kÃ¸res
+
     cout << "Hvor mange KM vil kunden k\x9Bres? ";
     cin >> indtastetKM;
+
+    // har kunden kastet op? ja eller nej 
 
     string Opkast;
     cout << "Har kunden kastet op ? \n 1) ja \n 2) nej\n";
     cin >> Opkast;
 
+    //hvis ja(1) sÃ¦t variablens Kastetop til en vÃ¦rdi af 1
+
     if (Opkast == "1" || Opkast == "ja") {
         kastetop = 1;
     }
+
+    // ellers hvis nej (2) sÃ¦t variablen Kastetop til 0
+
     else if (Opkast == "2" || Opkast == "nej") {
         kastetop = 0;
     }
 
+    // hvis indtastetKM er under 100 skal der ganges pris pr km med indtastet km og plusses opstarts pris
 
     if (indtastetKM <= 100) {
-        udregnetPrisForKørteKMFoerGebyr = prisprkm * indtastetKM;
-        Resultat = udregnetPrisForKørteKMFoerGebyr + opstart;
+        udregnetPrisForKï¿½rteKMFoerGebyr = prisprkm * indtastetKM;
+        Resultat = udregnetPrisForKï¿½rteKMFoerGebyr + opstart;
+
+        // hvis kastet op lÃ¦gges der opkastgebyr oven i
+
         if (kastetop == 1) {
             visResultat = Resultat + opkastgebyr;
             cout << visResultat << ",- Kr\n";
             omregn();
         }
+
+        // ellers bare vis resultat uden opkast gebyr
+
         else if (kastetop == 0) {
             //Resultat = visResultat;
             cout << Resultat << ",-Kr\n";
@@ -56,14 +72,14 @@ label:
     }
 
     if (indtastetKM > 100) {
-        //Renger indtastet km om til prisen på kørte kilometer
+        //Renger indtastet km om til prisen pï¿½ kï¿½rte kilometer
         sumindenrabat = prisprkm * indtastetKM;
         //regner rabatten ud
         Rabatten = sumindenrabat * 10 / 100;
-        //trækker rabatten fra beregnet pris
-        udregnetPrisForKørteKMFoerGebyr = sumindenrabat - Rabatten;
+        //trï¿½kker rabatten fra beregnet pris
+        udregnetPrisForKï¿½rteKMFoerGebyr = sumindenrabat - Rabatten;
         // ligger opstart gebyr til prisen
-        visResultat = udregnetPrisForKørteKMFoerGebyr + opstart;
+        visResultat = udregnetPrisForKï¿½rteKMFoerGebyr + opstart;
 
         if (kastetop == 1) {
             Resultat = visResultat + opkastgebyr;
@@ -79,14 +95,14 @@ label:
 
     }
     if (indtastetKM > 150) {
-        //Renger indtastet km om til prisen på kørte kilometer
+        //Renger indtastet km om til prisen pï¿½ kï¿½rte kilometer
         sumindenrabat = prisprkm * indtastetKM;
         //regner rabatten ud
         Rabatten = sumindenrabat * 20 / 100;
-        //trækker rabatten fra beregnet pris
-        udregnetPrisForKørteKMFoerGebyr = sumindenrabat - Rabatten;
+        //trï¿½kker rabatten fra beregnet pris
+        udregnetPrisForKï¿½rteKMFoerGebyr = sumindenrabat - Rabatten;
         // ligger opstart gebyr til prisen
-        visResultat = udregnetPrisForKørteKMFoerGebyr + opstart;
+        visResultat = udregnetPrisForKï¿½rteKMFoerGebyr + opstart;
 
         if (kastetop == 1) {
             Resultat = visResultat + opkastgebyr;
@@ -103,14 +119,14 @@ label:
 
 
     if (indtastetKM > 200) {
-        //Renger indtastet km om til prisen på kørte kilometer
+        //Renger indtastet km om til prisen pï¿½ kï¿½rte kilometer
         sumindenrabat = prisprkm * indtastetKM;
         //regner rabatten ud
         Rabatten = sumindenrabat * 30 / 100;
-        //trækker rabatten fra beregnet pris
-        udregnetPrisForKørteKMFoerGebyr = sumindenrabat - Rabatten;
+        //trï¿½kker rabatten fra beregnet pris
+        udregnetPrisForKï¿½rteKMFoerGebyr = sumindenrabat - Rabatten;
         // ligger opstart gebyr til prisen
-        visResultat = udregnetPrisForKørteKMFoerGebyr + opstart;
+        visResultat = udregnetPrisForKï¿½rteKMFoerGebyr + opstart;
 
         if (kastetop == 1) {
             Resultat = visResultat + opkastgebyr;
@@ -127,9 +143,15 @@ label:
     
     }
 }
+
+    //funktion der kan omregne prisen til en anden valuta
+    //spÃ¸rger om du vil omregne prisen til en anden valuta og indsÃ¦tter vÃ¦rdien i variabel kaldet valuta
+
 float omregn() {
     cout << "Vil du have omregner prisen til en anden valuta?\n 1) ja\n 2) nej\n";
     cin >> valuta;
+
+    //hvis valuta = 1 (ja) spÃ¸rger den hvilken valuta der skal omregnes til
 
     if (valuta == 1) {
             cout << "Hvilken valuta vil du omregne til? \n1) USD \n2) EUR \n3) NOK \n4) SEK\n";
